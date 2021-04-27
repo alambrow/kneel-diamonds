@@ -31,10 +31,13 @@ const database = {
             metalId: 3,
             sizeId: 2,
             styleId: 3,
-            timestamp: 1614659931693
+            OrderedOn: 123459183293
         }
-    ]
+    ],
+    orderBuilder: {},
 }
+
+// functions to get state
 
 export const getStyles = () => {
     return [...database.styles]
@@ -48,6 +51,16 @@ export const getMetals = () => {
     return [...database.metals]
 }
 
-export const getCustomOrders = () => {
-    return [...database.customOrders]
+// functions to set state
+
+export const setMetal = (id) => {
+    database.orderBuilder.metalId = id
+}
+
+export const setSize = (id) => {
+    database.orderBuilder.sizeId = id
+}
+
+export const setStyle = (id) => {
+    database.orderBuilder.styleId = id
 }
