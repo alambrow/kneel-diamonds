@@ -1,6 +1,7 @@
 import { DiamondSizes } from "./DiamondSizes.js"
 import { JewelryStyles } from "./JewelryStyles.js"
 import { Metals } from "./Metals.js"
+import { Orders } from "./Orders.js"
 
 // TODO add event listener
 
@@ -35,6 +36,7 @@ export const KneelDiamonds = () => {
 
         <article class="customOrders">
             <h2>Custom Jewelry Orders</h2>
+            ${ Orders() }
         </article>
     `
 }

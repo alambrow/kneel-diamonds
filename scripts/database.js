@@ -31,7 +31,7 @@ const database = {
             metalId: 3,
             sizeId: 2,
             styleId: 3,
-            OrderedOn: 123459183293
+            timestamp: 123459183293
         }
     ],
     orderBuilder: {},
@@ -51,6 +51,10 @@ export const getMetals = () => {
     return [...database.metals]
 }
 
+export const getOrders = () => {
+    return [...database.customOrders]
+}
+
 // functions to set state
 
 export const setMetal = (id) => {
@@ -63,4 +67,28 @@ export const setSize = (id) => {
 
 export const setStyle = (id) => {
     database.orderBuilder.styleId = id
+}
+
+
+// this function takes temporary values from orderBuilder
+// and stores them in permanent object
+
+export const addCustomOrder = () => {
+    // Copy the current state of user choices
+    const newOrder = {...database.orderBuilder}
+
+    // Add a new primary key to the object
+    newOrder.id = [...database.customOrders].pop().id + 1
+
+    // Add a timestamp to the order
+    newOrder.timestamp = Date.now()
+
+    // Add the new order object to custom orders state
+    database.customOrders.push(newOrder)
+
+    // Reset the temporary state for user choices
+    database.orderBuilder = {}
+
+    // Broadcast a notification that permanent state has changed
+    document.dispatchEvent(new CustomEvent("stateChanged"))
 }
