@@ -2,7 +2,7 @@ import { DiamondSizes } from "./DiamondSizes.js"
 import { JewelryStyles } from "./JewelryStyles.js"
 import { Metals } from "./Metals.js"
 
-// ToDO add event listener
+// TODO add event listener
 
 document.addEventListener(
     "click",

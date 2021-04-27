@@ -2,14 +2,15 @@ import { getSizes } from "./database.js"
 
 const sizes = getSizes()
 
-// document.addEventListener(
-//     "change",
-//     (event) => {
-//         if (event.target.name === "size") {
-//             window.alert(``)
-//         }
-//     }
-// )
+document.addEventListener(
+    "change",
+    (event) => {
+        if (event.target.name === "size") {
+            window.alert(`User chose size ${event.target.value}`)
+        }
+    }
+)
+
 
 
 // Use .map() for converting objects to <li> elements
