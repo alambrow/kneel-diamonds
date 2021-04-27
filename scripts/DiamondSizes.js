@@ -2,36 +2,28 @@ import { getSizes } from "./database.js"
 
 const sizes = getSizes()
 
-document.addEventListener(
-    "change",
-    (event) => {
-        if (event.target.name === "size") {
-            window.alert(``)
-        }
-    }
-)
+// document.addEventListener(
+//     "change",
+//     (event) => {
+//         if (event.target.name === "size") {
+//             window.alert(``)
+//         }
+//     }
+// )
 
+
+// Use .map() for converting objects to <li> elements
 export const DiamondSizes = () => {
     let html = "<ul>"
 
-    for (const size of sizes) {
-        html += `<li>
-                <input type="radio" name="size" value="${size.id}" /> ${size.carets}
-                </li>`
-    }
+    const sizeList = sizes.map(
+        (size) => {
+            return `<li>
+        <input type="radio" name="size" value="${size.id}" /> ${size.carets}
+    </li>`
+        })
 
-    // // Use .map() for converting objects to <li> elements
-    // const listItems = metals.map(size => {
-    //     size += `<li>
-    //         <input type="radio" name="size" value="${size.id}" /> ${size.carets}
-    //     </li>`
-    //     return size
-    // })
-
-    // html += listItems.join("")
-
+    html += sizeList.join("\n")
     html += "</ul>"
-
     return html
 }
-

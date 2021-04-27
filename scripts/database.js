@@ -36,10 +36,18 @@ const database = {
     ]
 }
 
-export const getMetals = () => {
-    return [...database.metals]
+export const getStyles = () => {
+    return [...database.styles]
 }
 
 export const getSizes = () => {
     return [...database.sizes]
+}
+
+export const getMetals = () => {
+    return [...database.metals]
+}
+
+export const getCustomOrders = () => {
+    return [...database.customOrders]
 }
