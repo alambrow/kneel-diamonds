@@ -1,8 +1,9 @@
-import { getOrders, getMetals, getSizes, getStyles } from "./database.js"
+import { getOrders, getMetals, getSizes, getStyles, getTypes } from "./database.js"
 
 const metals = getMetals()
 const sizes = getSizes()
 const styles = getStyles()
+const types = getTypes()
 
 const buildOrderListItem = (order) => {
     // function to access price of metal selected by radio-input event
@@ -28,9 +29,18 @@ const buildOrderListItem = (order) => {
         }
     )
 
+    const foundType = types.find(
+        (type) => {
+            return type.id === order.typeId
+        }
+    )
+
     // then add them all up to pass into HTML return!
 
-    const totalCost = foundMetal.price + foundSize.price + foundStyle.price
+    const total = (foundMetal.price + foundSize.price + foundStyle.price) * foundType.price
+    
+    // rounds total to two decimal places
+    const totalCost = total.toFixed(2)
 
     return `<li>
         Order #${order.id} was placed at the ridiculous time of ${order.timestamp} and will cost the consumer $${ totalCost }.

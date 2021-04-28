@@ -5,6 +5,9 @@
     modules to get copies of the state.
 
 */
+
+// prices in types object are multipliers!!!
+
 const database = {
     styles: [
         { id: 1, style: "Classic", price: 500 },
@@ -25,12 +28,18 @@ const database = {
         { id: 4, metal: "Platinum", price: 795.45 },
         { id: 5, metal: "Palladium", price: 1241.0 }
     ],
+    types: [
+        { id: 1, type: "Ring", price: 1 },
+        { id: 2, type: "Earring", price: 2 },
+        { id: 3, type: "Necklace", price: 4 }
+    ],
     customOrders: [
         {
             id: 1,
             metalId: 3,
             sizeId: 2,
             styleId: 3,
+            typeId: 1,
             timestamp: 123459183293
         }
     ],
@@ -55,6 +64,10 @@ export const getOrders = () => {
     return [...database.customOrders]
 }
 
+export const getTypes = () => {
+    return [...database.types]
+}
+
 // functions to set state
 
 export const setMetal = (id) => {
@@ -69,6 +82,9 @@ export const setStyle = (id) => {
     database.orderBuilder.styleId = id
 }
 
+export const setType = (id) => {
+    database.orderBuilder.typeId = id
+}
 
 // this function takes temporary values from orderBuilder
 // and stores them in permanent object
