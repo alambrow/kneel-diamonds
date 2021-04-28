@@ -1,3 +1,4 @@
+import { addCustomOrder } from "./database.js"
 import { DiamondSizes } from "./DiamondSizes.js"
 import { JewelryStyles } from "./JewelryStyles.js"
 import { Metals } from "./Metals.js"
@@ -7,7 +8,14 @@ import { Orders } from "./Orders.js"
 
 document.addEventListener(
     "click",
-    (event) => {
+    (stateChanged) => {
+        // grab values from object clicked and invoke addCustomOrder
+        const itemClicked = stateChanged.target
+        if (itemClicked.id.startsWith("orderButton")) {
+            // addCustomOrder
+            addCustomOrder()
+        }
+
     }
 )
 
