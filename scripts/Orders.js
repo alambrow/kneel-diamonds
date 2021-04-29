@@ -43,7 +43,7 @@ const buildOrderListItem = (order) => {
     const totalCost = total.toFixed(2)
 
     return `<li>
-        Order #${order.id} was placed at the ridiculous time of ${order.timestamp} and will cost the consumer $${ totalCost }.
+        <strong>Order #${order.id}</strong> was placed at the ridiculous time of ${order.timestamp} UTC and will cost the consumer $${ totalCost }.
     </li>`
 }
 

@@ -8,6 +8,8 @@
 
 // prices in types object are multipliers!!!
 
+import { renderAllHTML } from "./main.js"
+
 const database = {
     styles: [
         { id: 1, style: "Classic", price: 500 },
@@ -72,6 +74,7 @@ export const getTypes = () => {
 
 export const setMetal = (id) => {
     database.orderBuilder.metalId = id
+    // document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
 export const setSize = (id) => {
@@ -107,4 +110,5 @@ export const addCustomOrder = () => {
 
     // Broadcast a notification that permanent state has changed
     document.dispatchEvent(new CustomEvent("stateChanged"))
+
 }

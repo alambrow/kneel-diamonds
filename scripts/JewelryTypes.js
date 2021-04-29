@@ -19,7 +19,7 @@ export const JewelryTypes = () => {
 
     const typesList = types.map(
         (type) => {
-            return `<input type="radio" name="type" value="${type.id}"> ${type.type}`
+            return `<input type="radio" name="type" value="${type.id}" /> ${type.type}`
         }
     )
 
